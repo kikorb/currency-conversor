@@ -1,4 +1,4 @@
-# currency-conversor
+# currency-converter
 # author : kikorb
 
 # HOWTO
