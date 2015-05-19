@@ -1,4 +1,4 @@
 currency-converter
 ==================
 
-A currency converter for uebersicht
+A currency converter for ubersicht
