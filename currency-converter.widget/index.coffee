@@ -5,9 +5,9 @@
 # replace the from and to variables with the corresponding currencies
 # enjoy!
 
-command : ""
-from    : "GBP"
-to      : "EUR"
+command : ''
+from    : 'GBP'
+to      : 'EUR'
 refreshFrequency: 15 * 60 * 1000
 
 style: """
@@ -35,12 +35,12 @@ render: (input) ->
     """
 
 update : (input, domEl) ->
-  $.ajax dataType: "jsonp", url:"http://rate-exchange.appspot.com/currency?from=#{@from}&to=#{@to}&q=1", success: ( data ) =>
+  $.ajax dataType: "jsonp", url:"http://api.fixer.io/latest?base=#{@from}", success: ( data ) =>
     @replaceRate(data)
 
 replaceRate : (data) ->
   $domEl = $("##{@id}")
-  if !data.rate
+  if !data.rates
     $domEl.hide()
   else
-    $domEl.find('#rate').html(data.rate)
+    $domEl.find('#rate').html(data.rates[@to])
